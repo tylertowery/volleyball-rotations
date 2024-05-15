@@ -1,95 +1,45 @@
+'use client'
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useState } from 'react';
 
 export default function Home() {
+  const [numPlayers, setNumPlayers] = useState(0);
+  const [playerNames, setPlayerNames] = useState([]);
+
+  const handleNumPlayersChange = (e) => {
+    console.log(e.target.value);
+    setNumPlayers(parseInt(e.target.value, 10));
+  }
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
+    <div>
+      <h1>Volleyball Player Rotation</h1>
+      <div>
+        <label>Select Number of Players:</label>
+        <select value={numPlayers} onChange={handleNumPlayersChange}>
+          <option key={0} value={0}>---</option>
+          <option key={6} value={6}>6</option>
+          <option key={7} value={7}>7</option>
+          <option key={8} value={8}>8</option>
+          <option key={9} value={9}>9</option>
+        </select>
+      </div>
+      {numPlayers ?
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          <h2>Enter Player Names</h2>
+          {[...Array(numPlayers)].map((_, index) => (
+            <input
+              key={index}
+              type='text'
+              placeholder={`Player ${index + 1}`}
+              style={{ margin: '8px 0', padding: '6px' }}
+            />))}
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        : null
+      }
+    </div>
   );
 }
