@@ -105,8 +105,11 @@ export default function Home() {
         {created && (
           <div className='rotating-players'>
             <div className='net-header'>
-              <h1 className='net'>NET</h1>
-              <h1 className='subs'>Subs</h1>
+              <h1 className={`net ${numPlayers === 6 ? 'stretch' : ''}`}>NET</h1>
+              {numPlayers === 6 ?
+                null
+                :
+                <h1 className='subs'>Subs</h1>}
             </div>
             <div className={`player-cards-container cards items-${Object.keys(players).length}`}>
               {Object.keys(players).map((key, index) => {

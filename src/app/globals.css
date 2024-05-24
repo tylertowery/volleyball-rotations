@@ -155,6 +155,10 @@ h1 {
   text-align: center;
 }
 
+.net.stretch {
+  width: 100%;
+}
+
 .subs {
   width: 25%;
   border-bottom: 5px solid green;
