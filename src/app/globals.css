@@ -245,6 +245,10 @@ h1 {
   border-color: yellow;
 }
 
+.opposite {
+  border-color: green;
+}
+
 .rotating-players {
   display: flex;
   flex-direction: column;

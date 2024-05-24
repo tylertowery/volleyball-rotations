@@ -93,6 +93,7 @@ export default function Home() {
                   <option value='setter'>Setter</option>
                   <option value='hitter'>Hitter</option>
                   <option value='middle'>Middle</option>
+                  <option value='opposite'>Opposite</option>
                 </select>
               </div>
             ))}
