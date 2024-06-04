@@ -293,7 +293,7 @@ h1 {
 
 /***** Mobile Devices *****/
 
-@media (max-width: 768px) {
+@media (max-width: 828px) {
   .player-cards-container {
     width: 100vw;
   }
