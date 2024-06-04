@@ -290,3 +290,24 @@ h1 {
   transform: scale(0.98);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
+
+/***** Mobile Devices *****/
+
+@media (max-width: 768px) {
+  .player-cards-container {
+    width: 100vw;
+  }
+
+  .player-card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .net-header {
+    width: 100vw;
+  }
+
+  .net.stretch {
+    width: 100vw;
+  }
+}
