@@ -7,25 +7,27 @@ import PlayerCard from '../app/components/player-cards';
 
 export default function Home() {
   const [numPlayers, setNumPlayers] = useState(0);
-  const [players, setPlayers] = useState({});
+  const [players, setPlayers] = useState([]);
   const [created, setCreated] = useState(false);
   const [spots, setSpots] = useState([]);
+  const [settersStay, setSettersStay] = useState(false);
 
   const handleNumPlayersChange = (e) => {
     console.log(e.target.value);
     setNumPlayers(parseInt(e.target.value, 10));
-    setPlayers({});
+    setPlayers([]);
     setCreated(false);
   }
 
   const handleInputChange = (index, field, value) => {
-    setPlayers(prevPlayers => ({
-      ...prevPlayers,
-      [index]: {
-        ...prevPlayers[index],
-        [field]: value
+    setPlayers(prevPlayers => {
+      const newPlayers = [...prevPlayers];
+      if (!newPlayers[index]) {
+        newPlayers[index] = { name: '', position: '', spot: index + 1 };
       }
-    }));
+      newPlayers[index][field] = value;
+      return newPlayers;
+    });
   }
 
   const getPlayerPositionsArray = (numPlayers) => {
@@ -46,11 +48,33 @@ export default function Home() {
     setCreated(true);
   }
 
-  const handleRotation = (e) => {
-    const newSpots = [...spots];
-    const newFront = newSpots.pop();
-    newSpots.unshift(newFront);
-    setSpots(newSpots);
+  const rotatePlayers = (players, numPlayers) => {
+    // const frontRightIndex = numPlayers === 6 ? 2 : (numPlayers === 7 ? 3 : (numPlayers === 8 ? 4 : 5));
+    // const backRightIndex = 1;
+
+    // if (settersStay) {
+    //   const frontRightPlayer = players.find(player => player.spot === frontRightIndex);
+    //   if (frontRightPlayer.position === 'setter') {
+
+    //   }
+    // }
+
+    return players.map(player => {
+      let newSpot = player.spot - 1;
+      if (newSpot === 0) {
+        newSpot = players.length;
+      }
+      return { ...player, spot: newSpot }
+    });
+  }
+
+  const handleRotation = () => {
+    setPlayers(prevPlayers => rotatePlayers(prevPlayers, numPlayers));
+  }
+
+  const getPositionName = (spot, numPlayers) => {
+    const positions = getPlayerPositionsArray(numPlayers);
+    return positions[spot - 1];
   }
 
   useEffect(() => {
@@ -105,6 +129,18 @@ export default function Home() {
       <div>
         {created && (
           <div className='rotating-players'>
+            {numPlayers > 6 ?
+              <div>
+                <input
+                  type='checkbox'
+                  id='settersStay'
+                  name='settersStay'
+                  checked={settersStay}
+                  onChange={(e) => setSettersStay(e.target.checked)} />
+                <label htmlFor='settersStay'>Setters stay</label>
+              </div>
+              :
+              null}
             <div className='net-header'>
               <h1 className={`net ${numPlayers === 6 ? 'stretch' : ''}`}>NET</h1>
               {numPlayers === 6 ?
@@ -115,14 +151,14 @@ export default function Home() {
             <div className={`player-cards-container cards items-${Object.keys(players).length}`}>
               {Object.keys(players).map((key, index) => {
                 const player = players[key];
-                const spot = spots[index];
+                const namedSpot = getPositionName(player.spot, numPlayers);
                 return (
                   <PlayerCard
                     key={index}
                     name={player.name}
                     position={player.position}
                     index={index}
-                    spot={spot}
+                    spot={namedSpot}
                     handleInputChange={handleInputChange}
                   />)
               })}
