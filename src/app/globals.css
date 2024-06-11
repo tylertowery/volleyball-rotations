@@ -116,6 +116,19 @@ h1 {
   justify-content: center;
 }
 
+.player-name-input {
+  margin: .5rem .5rem .5rem 0;
+  padding: .25rem;
+}
+
+.position-select {
+  padding: .25rem;
+}
+
+h2 {
+  text-align: center;
+}
+
 /***** Player Cards *****/
 .cards {
   width: 100vw;
@@ -154,16 +167,19 @@ h1 {
   width: 75%;
   border-bottom: 5px solid white;
   text-align: center;
+  padding: 2rem 0 1rem 0
 }
 
 .net.stretch {
   width: 100%;
+  padding: 2rem 0 1rem 0;
 }
 
 .subs {
   width: 25%;
   border-bottom: 5px solid green;
   text-align: center;
+  padding: 2rem 0 1rem 0;
 }
 
 .items-6 {
@@ -253,6 +269,17 @@ h1 {
 .rotating-players {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.setters-stay-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.setters-stay-section input[type='checkbox'] {
+  margin-right: .5rem;
 }
 
 /***** Button *****/
@@ -297,6 +324,7 @@ h1 {
 @media (max-width: 828px) {
   .player-cards-container {
     width: 100vw;
+    border-radius: 0;
   }
 
   .player-card {

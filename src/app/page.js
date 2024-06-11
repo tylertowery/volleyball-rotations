@@ -16,6 +16,7 @@ export default function Home() {
     console.log(e.target.value);
     setNumPlayers(parseInt(e.target.value, 10));
     setPlayers([]);
+    setSettersStay(false);
     setCreated(false);
   }
 
@@ -49,22 +50,42 @@ export default function Home() {
   }
 
   const rotatePlayers = (players, numPlayers) => {
-    // const frontRightIndex = numPlayers === 6 ? 2 : (numPlayers === 7 ? 3 : (numPlayers === 8 ? 4 : 5));
-    // const backRightIndex = 1;
+    const frontRightIndex = numPlayers === 6 ? 2 : (numPlayers === 7 ? 3 : (numPlayers === 8 ? 4 : 5));
+    const backRightIndex = 1;
 
-    // if (settersStay) {
-    //   const frontRightPlayer = players.find(player => player.spot === frontRightIndex);
-    //   if (frontRightPlayer.position === 'setter') {
-
-    //   }
-    // }
+    const setterFrontRight = players.some(player => player.spot === frontRightIndex && player.position === 'setter');
 
     return players.map(player => {
-      let newSpot = player.spot - 1;
-      if (newSpot === 0) {
-        newSpot = players.length;
+      if (settersStay) {
+        if (player?.spot === frontRightIndex && player?.position === 'setter') {
+          let newSpot = 1;
+          return { ...player, spot: newSpot };
+        } else if (setterFrontRight && numPlayers === 7 && player.spot === 2) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 8 && player.spot === 2) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 8 && player.spot === 3) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 9 && player.spot === 2) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 9 && player.spot === 3) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 9 && player.spot === 4) {
+          return { ...player };
+        } else {
+          let newSpot = player.spot - 1;
+          if (newSpot === 0) {
+            newSpot = players.length;
+          }
+          return { ...player, spot: newSpot };
+        }
+      } else {
+        let newSpot = player.spot - 1;
+        if (newSpot === 0) {
+          newSpot = players.length;
+        }
+        return { ...player, spot: newSpot };
       }
-      return { ...player, spot: newSpot }
     });
   }
 
@@ -105,12 +126,13 @@ export default function Home() {
                   onChange={((e) => handleInputChange(index, 'name', e.target.value))}
                   key={index}
                   type='text'
+                  className='player-name-input'
                   placeholder={`Player ${index + 1}`}
-                  style={{ margin: '8px 0', padding: '6px' }}
                   required
                 />
                 <select
                   onChange={(e) => handleInputChange(index, 'position', e.target.value)}
+                  className='position-select'
                   required
                 >
                   <option value=''>Select Position</option>
@@ -130,7 +152,7 @@ export default function Home() {
         {created && (
           <div className='rotating-players'>
             {numPlayers > 6 ?
-              <div>
+              <div className='setters-stay-section'>
                 <input
                   type='checkbox'
                   id='settersStay'
