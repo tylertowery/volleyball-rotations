@@ -152,6 +152,7 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 60vw;
+  padding: 2rem 0;
   margin: auto;
 }
 
@@ -218,18 +219,6 @@ h2 {
   margin: auto;
 }
 
-.top-left,
-.top-middle,
-.top-right {
-  margin-top: 2rem;
-}
-
-.bottom-right,
-.bottom-left,
-.bottom-middle {
-  margin-bottom: 2rem;
-}
-
 .bottom-left {
   grid-area: 2/1;
   margin: auto;
@@ -242,18 +231,14 @@ h2 {
 
 .extra-1 {
   grid-area: 3/4;
-  margin: auto;
-  margin-bottom: 2rem;
 }
 
 .extra-2 {
   grid-area: 2/4;
-  margin: auto;
 }
 
 .extra-3 {
   grid-area: 1/4;
-  margin: auto;
 }
 
 .setter {
