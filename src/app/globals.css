@@ -224,6 +224,12 @@ h2 {
   margin-top: 2rem;
 }
 
+.bottom-right,
+.bottom-left,
+.bottom-middle {
+  margin-bottom: 2rem;
+}
+
 .bottom-left {
   grid-area: 2/1;
   margin: auto;
