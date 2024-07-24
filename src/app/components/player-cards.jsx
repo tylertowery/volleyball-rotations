@@ -60,7 +60,7 @@ export default function PlayerCard({ name, position, index, spot, handleInputCha
           <option value='flex-setter'>Flex Setter</option>
         </select>
         :
-        <h3 onClick={handlePositionClick}>{`(${position})`}</h3>
+        <h5 onClick={handlePositionClick}>{`(${position})`}</h5>
       }
     </div>
   );
