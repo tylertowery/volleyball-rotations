@@ -56,8 +56,8 @@ export default function PlayerCard({ name, position, index, spot, handleInputCha
           <option value='setter'>Setter</option>
           <option value='hitter'>Hitter</option>
           <option value='middle'>Middle</option>
-          <option value='flex-hitter'>Flex Hitter</option>
-          <option value='flex-setter'>Flex Setter</option>
+          <option value='flex-hit'>Flex Hitter</option>
+          <option value='flex-set'>Flex Setter</option>
         </select>
         :
         <h5 onClick={handlePositionClick}>{`(${position})`}</h5>
