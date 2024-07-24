@@ -253,8 +253,12 @@ h2 {
   border-color: yellow;
 }
 
-.flex {
+.flex-hitter {
   border-color: orange;
+}
+
+.flex-setter {
+  border-color: purple;
 }
 
 .rotating-players {

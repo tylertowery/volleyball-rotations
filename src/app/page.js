@@ -139,7 +139,8 @@ export default function Home() {
                   <option value='setter'>Setter</option>
                   <option value='hitter'>Hitter</option>
                   <option value='middle'>Middle</option>
-                  <option value='flex'>Flex</option>
+                  <option value='flex-hitter'>Flex Hitter</option>
+                  <option value='flex-setter'>Flex Setter</option>
                 </select>
               </div>
             ))}
