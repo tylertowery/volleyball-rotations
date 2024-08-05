@@ -56,6 +56,7 @@ export default function PlayerCard({ name, position, index, spot, handleInputCha
           <option value='setter'>Setter</option>
           <option value='hitter'>Hitter</option>
           <option value='middle'>Middle</option>
+          <option value='opposite'>Opposite</option>
           <option value='flex-hit'>Flex Hitter</option>
           <option value='flex-set'>Flex Setter</option>
         </select>
