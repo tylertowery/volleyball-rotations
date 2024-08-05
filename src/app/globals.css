@@ -357,4 +357,11 @@ h2 {
   .net.stretch {
     width: 100vw;
   }
+
+  .extra-1,
+  .extra-2,
+  .extra-3,
+  .extra-4 {
+    margin: 0;
+  }
 }
