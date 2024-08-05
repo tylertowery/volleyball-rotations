@@ -40,6 +40,8 @@ export default function Home() {
       return ['bottom-right', 'extra-1', 'extra-2', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     } else if (numPlayers === 9) {
       return ['bottom-right', 'extra-1', 'extra-2', 'extra-3', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
+    } else if (numPlayers === 10) {
+      return ['bottom-right', 'extra-1', 'extra-2', 'extra-3', 'extra-4', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     }
     return [];
   };
@@ -50,7 +52,7 @@ export default function Home() {
   }
 
   const rotatePlayers = (players, numPlayers) => {
-    const frontRightIndex = numPlayers === 6 ? 2 : (numPlayers === 7 ? 3 : (numPlayers === 8 ? 4 : 5));
+    const frontRightIndex = numPlayers === 6 ? 2 : (numPlayers === 7 ? 3 : (numPlayers === 8 ? 4 : (numPlayers === 9 ? 5 : 6)));
     const backRightIndex = 1;
 
     const setterFrontRight = players.some(player => player.spot === frontRightIndex && player.position === 'setter');
@@ -71,6 +73,14 @@ export default function Home() {
         } else if (setterFrontRight && numPlayers === 9 && player.spot === 3) {
           return { ...player };
         } else if (setterFrontRight && numPlayers === 9 && player.spot === 4) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 10 && player.spot === 2) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 10 && player.spot === 3) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 10 && player.spot === 4) {
+          return { ...player };
+        } else if (setterFrontRight && numPlayers === 10 && player.spot === 5) {
           return { ...player };
         } else {
           let newSpot = player.spot - 1;
@@ -114,6 +124,7 @@ export default function Home() {
           <option key={7} value={7}>7</option>
           <option key={8} value={8}>8</option>
           <option key={9} value={9}>9</option>
+          <option key={10} value={10}>10</option>
         </select>
       </div>
       <div>

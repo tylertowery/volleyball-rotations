@@ -199,6 +199,10 @@ h2 {
   grid-template-columns: repeat(3, 1fr) repeat(2 1fr);
 }
 
+.items-10 {
+  grid-template-columns: repeat(3, 1fr) repeat(3 1fr);
+}
+
 .bottom-right {
   grid-area: 2/3;
   margin: auto;
@@ -230,14 +234,18 @@ h2 {
 }
 
 .extra-1 {
-  grid-area: 3/4;
+  grid-area: 4/4;
 }
 
 .extra-2 {
-  grid-area: 2/4;
+  grid-area: 3/4;
 }
 
 .extra-3 {
+  grid-area: 2/4;
+}
+
+.extra-4 {
   grid-area: 1/4;
 }
 
