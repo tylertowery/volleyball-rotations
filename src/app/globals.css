@@ -184,14 +184,17 @@ h2 {
 }
 
 .items-6 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-.items-7 {
-  grid-template-columns: repeat(3, 1fr) 1fr;
+.items-7,
+.items-8,
+.items-9,
+.items-10 {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.items-8 {
+/* .items-8 {
   grid-template-columns: repeat(3, 1fr) repeat(1 1fr);
 }
 
@@ -201,7 +204,7 @@ h2 {
 
 .items-10 {
   grid-template-columns: repeat(3, 1fr) repeat(3 1fr);
-}
+} */
 
 .bottom-right {
   grid-area: 2/3;
