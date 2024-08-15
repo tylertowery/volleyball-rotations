@@ -35,13 +35,13 @@ export default function Home() {
     if (numPlayers === 6) {
       return ['bottom-right', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     } else if (numPlayers === 7) {
-      return ['bottom-right', 'extra-1', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
+      return ['bottom-right', 'extra-4', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     } else if (numPlayers === 8) {
-      return ['bottom-right', 'extra-1', 'extra-2', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
+      return ['bottom-right', 'extra-4', 'extra-3', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     } else if (numPlayers === 9) {
-      return ['bottom-right', 'extra-1', 'extra-2', 'extra-3', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
+      return ['bottom-right', 'extra-4', 'extra-3', 'extra-2', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     } else if (numPlayers === 10) {
-      return ['bottom-right', 'extra-1', 'extra-2', 'extra-3', 'extra-4', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
+      return ['bottom-right', 'extra-4', 'extra-3', 'extra-2', 'extra-1', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     }
     return [];
   };
