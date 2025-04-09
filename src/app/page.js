@@ -42,6 +42,8 @@ export default function Home() {
       return ['bottom-right', 'extra-2', 'extra-3', 'extra-4', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     } else if (numPlayers === 10) {
       return ['bottom-right', 'extra-1', 'extra-2', 'extra-3', 'extra-4', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
+    } else if (numPlayers === 11) {
+      return ['bottom-right', 'extra-1', 'extra-2', 'extra-3', 'extra-4', 'extra-5', 'top-right', 'top-middle', 'top-left', 'bottom-left', 'bottom-middle'];
     }
     return [];
   };
@@ -125,6 +127,7 @@ export default function Home() {
           <option key={8} value={8}>8</option>
           <option key={9} value={9}>9</option>
           <option key={10} value={10}>10</option>
+          <option key={11} value={11}>11</option>
         </select>
       </div>
       <div>

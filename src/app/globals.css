@@ -191,8 +191,9 @@ h2 {
 .items-7,
 .items-8,
 .items-9,
-.items-10 {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+.items-10,
+.items-11 {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* .items-8 {
@@ -238,26 +239,31 @@ h2 {
 }
 
 .extra-1 {
-  grid-area: 4/4;
+  grid-area: 5/5;
   margin: auto;
 }
 
 .extra-2 {
-  grid-area: 3/4;
+  grid-area: 4/5;
   margin: auto;
 
 }
 
 .extra-3 {
-  grid-area: 2/4;
+  grid-area: 3/5;
   margin: auto;
 
 }
 
 .extra-4 {
-  grid-area: 1/4;
+  grid-area: 2/5;
   margin: auto;
 
+}
+
+.extra-5 {
+  grid-area: 1/5;
+  margin: auto;
 }
 
 .setter {
@@ -361,7 +367,8 @@ h2 {
   .extra-1,
   .extra-2,
   .extra-3,
-  .extra-4 {
+  .extra-4,
+  .extra-5 {
     margin: 0;
   }
 }
